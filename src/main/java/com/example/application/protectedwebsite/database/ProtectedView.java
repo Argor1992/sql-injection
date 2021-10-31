@@ -1,10 +1,9 @@
-package com.example.application.views;
+package com.example.application.protectedwebsite.database;
 
+import com.example.application.unprotectedwebsite.views.MainLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.example.application.components.leafletmap.LeafletMap;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
-import com.example.application.views.MainLayout;
 
 @PageTitle("Protected")
 @Route(value = "protected", layout = MainLayout.class)

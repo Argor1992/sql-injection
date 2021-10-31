@@ -1,4 +1,5 @@
 @import url('./main-layout.css');
+@import url('./profile-view.css');
 @import url('./views/map-view.css');
 @import url('leaflet/dist/leaflet.css');
 @import url('lumo-css-framework/all-classes.css');
@@ -20,15 +21,15 @@
 
     [theme~="dark"] {
       --lumo-base-color: hsl(214, 23%, 14%);
-      --lumo-primary-color: hsl(0, 0%, 73%);
+      --lumo-primary-color: hsl(0, 0%, 20%);
       --lumo-primary-color-50pct: hsla(0, 0%, 73%, 0.5);
       --lumo-primary-color-10pct: hsla(0, 0%, 73%, 0.1);
       --lumo-shade: hsl(214, 0%, 99%);
       --lumo-shade-5pct: hsla(214, 0%, 99%, 0.05);
       --lumo-shade-10pct: hsla(214, 0%, 99%, 0.1);
-      --lumo-shade-20pct: hsla(214, 0%, 99%, 0.2);
+      --lumo-shade-20pct: hsla(214, 0%, 20%, 0.2);
       --lumo-shade-30pct: hsla(214, 0%, 99%, 0.3);
-      --lumo-shade-40pct: hsla(214, 0%, 99%, 0.4);
+      --lumo-shade-40pct: hsla(214, 0%, 20%, 0.4);
       --lumo-shade-50pct: hsla(214, 0%, 99%, 0.5);
       --lumo-shade-60pct: hsla(214, 0%, 99%, 0.6);
       --lumo-shade-70pct: hsla(214, 0%, 99%, 0.7);
@@ -38,3 +39,7 @@
       --lumo-primary-text-color: hsl(214, 98%, 49%);
 
     }
+
+    .clickable {
+            cursor: pointer;
+        }

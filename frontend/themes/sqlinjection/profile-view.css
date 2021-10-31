@@ -1,0 +1,96 @@
+.profile-main-div{
+    justify-content: center;
+    max-width: 850px;
+    min-width: 45vw;
+    margin: auto;
+}
+
+.profile-photo{
+    border-radius: 50%;
+    width:6rem;
+    height:6rem;
+}
+
+.save-button{
+    width:20px;
+    height:20px;
+    padding-bottom: 70px;
+}
+
+.time-picker-box{
+    padding-left: var(--lumo-space-s);
+    width:7rem;
+}
+
+.presence-picker-box{
+    width:10rem;
+}
+
+.profile-info-header{
+    display: inline;
+    padding-bottom: .6em;
+    padding-top: .6em;
+    font-size: var(--lumo-font-size-l);
+    font-weight: bold;
+    color: var(--lumo-text-color);
+    box-sizing: border-box;
+}
+
+.profile-desk-name{
+    display: inline;
+    padding-bottom: .6em;
+    padding-top: .6em;
+    padding-right: .7em;
+    font-size: var(--lumo-font-size-l);
+    font-weight: 700;
+    color: var(--lumo-text-color);
+    box-sizing: border-box;
+}
+
+.badge-status{
+    display: inline;
+    padding: .6em .6em .6em;
+    font-size: 80%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    box-sizing: border-box;
+    color: var(--lumo-text-color);
+}
+.badge-status-office {
+    background-color: var(--lumo-primary-color-50pct);
+}
+.badge-status-home-office {
+    background-color: var(--lumo-success-color-50pct);
+}
+.badge-status-holiday {
+    background-color: #ffebc0;
+    color: var(--lumo-shade-80pct);
+}
+.badge-status-not-present {
+    background-color: var(--lumo-shade-20pct);
+}
+.badge-status-business-leave {
+    background-color: var(--lumo-primary-color);
+}
+
+.badge-status-available {
+    background-color: var(--lumo-success-color);
+}
+.badge-status-be-right-back {
+    background-color: #ffebc0;
+    color: var(--lumo-shade-80pct);
+}
+.badge-status-busy {
+    background-color: var(--lumo-error-color);
+
+}
+.badge-status-do-not-disturb {
+    background-color: #a4262c;
+}
+.badge-status-offline {
+    background-color: var(--lumo-shade-20pct);
+}
