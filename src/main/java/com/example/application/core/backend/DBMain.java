@@ -18,8 +18,8 @@ public class DBMain {
 
     private DBMain() {
         user = "root";
-        password = "Euro20Training";
-        url = "jdbc:mysql://localhost:3306/company";
+        password = "test";
+        url = "jdbc:mysql://mysql_db:3306/company";
         source = new MysqlDataSource();
         source.setUser(user);
         source.setPassword(password);

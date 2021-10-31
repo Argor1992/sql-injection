@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  web-app:
+    build: .
+    restart: always
+    ports:
+      - 8090:8080
+    depends_on:
+      - mysql_db
+
+  mysql_db:
+    image: "mysql"
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: company
+      MYSQL_ROOT_PASSWORD: test
+    volumes:
+      - "./sql_script.sql:/docker-entrypoint-initdb.d/schema.sql"

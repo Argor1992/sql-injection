@@ -1,5 +1,3 @@
-create database company;
-
 CREATE TABLE Employee(
 	id VARCHAR(30),
     firstname VARCHAR(30),
