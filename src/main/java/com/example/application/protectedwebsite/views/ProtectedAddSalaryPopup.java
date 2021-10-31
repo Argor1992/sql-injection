@@ -1,7 +1,7 @@
-package com.example.application.unprotectedwebsite.views;
+package com.example.application.protectedwebsite.views;
 
 import com.example.application.core.backend.data.Employee;
-import com.example.application.unprotectedwebsite.database.UnprotectedEmployeeService;
+import com.example.application.protectedwebsite.database.ProtectedEmployeeService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
@@ -15,9 +15,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextField;
 
-public class AddSalaryPopup extends VerticalLayout {
-    private final UnprotectedEmployeeService unprotectedEmployeeService;
-    private final SalaryAccordion accordion;
+public class ProtectedAddSalaryPopup extends VerticalLayout {
+    private final ProtectedEmployeeService protectedEmployeeService;
+    private final ProtectedSalaryAccordion accordion;
     private final Employee employee;
     private final Dialog popup;
 
@@ -28,8 +28,8 @@ public class AddSalaryPopup extends VerticalLayout {
     private final TextField month = new TextField("Month");
     private final TextField year = new TextField("Year");
 
-    public AddSalaryPopup(UnprotectedEmployeeService unprotectedEmployeeService, Employee employee, SalaryAccordion accordion) {
-        this.unprotectedEmployeeService = unprotectedEmployeeService;
+    public ProtectedAddSalaryPopup(ProtectedEmployeeService protectedEmployeeService, Employee employee, ProtectedSalaryAccordion accordion) {
+        this.protectedEmployeeService = protectedEmployeeService;
         this.employee = employee;
         this.accordion = accordion;
         popup = new Dialog(this);
@@ -60,7 +60,7 @@ public class AddSalaryPopup extends VerticalLayout {
 
     private Component getSaveAndCancelButton() {
         Button saveSkill = new Button("Save", VaadinIcon.CHECK.create(), e -> {
-            if (unprotectedEmployeeService.storeNewSalary(employee.getId(), amount.getValue(), taxes.getValue(), children.getValue(),
+            if (protectedEmployeeService.storeNewSalary(employee.getId(), amount.getValue(), taxes.getValue(), children.getValue(),
                     married.getValue(), month.getValue(), year.getValue())) {
                 accordion.redrawSalaryAndFetch();
                 popup.close();

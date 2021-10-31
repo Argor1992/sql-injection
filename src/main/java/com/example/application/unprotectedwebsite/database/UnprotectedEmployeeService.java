@@ -1,9 +1,9 @@
 package com.example.application.unprotectedwebsite.database;
 
-import com.example.application.backend.DBMain;
-import com.example.application.backend.data.Employee;
-import com.example.application.backend.data.Role;
-import com.example.application.backend.data.Salary;
+import com.example.application.core.backend.DBMain;
+import com.example.application.core.backend.data.Employee;
+import com.example.application.core.backend.data.Role;
+import com.example.application.core.backend.data.Salary;
 import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmployeeService {
+public class UnprotectedEmployeeService {
     private final DBMain dbMain;
 
-    public EmployeeService(DBMain dbMain) {
+    public UnprotectedEmployeeService(DBMain dbMain) {
         this.dbMain = dbMain;
     }
 

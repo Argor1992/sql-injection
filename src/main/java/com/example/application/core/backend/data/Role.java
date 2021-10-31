@@ -1,4 +1,4 @@
-package com.example.application.backend.data;
+package com.example.application.core.backend.data;
 
 public enum Role {
     EMPLOYEE, CEO, INTERN, WORKING_STUDENT;

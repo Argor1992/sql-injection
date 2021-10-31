@@ -1,8 +1,8 @@
-package com.example.application.unprotectedwebsite.views;
+package com.example.application.protectedwebsite.views;
 
 import com.example.application.core.backend.data.Employee;
 import com.example.application.core.backend.data.Salary;
-import com.example.application.unprotectedwebsite.database.UnprotectedEmployeeService;
+import com.example.application.protectedwebsite.database.ProtectedEmployeeService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.accordion.Accordion;
 import com.vaadin.flow.component.button.Button;
@@ -18,21 +18,24 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-public class SalaryAccordion extends HorizontalLayout {
+public class ProtectedSalaryAccordion extends HorizontalLayout {
 
-    private final UnprotectedEmployeeService unprotectedEmployeeService;
+    private final ProtectedEmployeeService protectedEmployeeService;
     private final Employee employee;
     private List<Salary> salaries;
     private final Div employeeSkillsLayout = new Div();
     private Div accordion = new Div();
     private final Map<Integer, VerticalLayout> accordionComponents = new HashMap<>();
 
-    public SalaryAccordion(UnprotectedEmployeeService unprotectedEmployeeService, Employee employee) {
-        this.unprotectedEmployeeService = unprotectedEmployeeService;
+    public ProtectedSalaryAccordion(ProtectedEmployeeService protectedEmployeeService, Employee employee) {
+        this.protectedEmployeeService = protectedEmployeeService;
         this.employee = employee;
-        this.salaries = unprotectedEmployeeService.getSalaries(employee.getId());
+        this.salaries = protectedEmployeeService.getSalaries(employee.getId());
         initView();
     }
 
@@ -71,7 +74,7 @@ public class SalaryAccordion extends HorizontalLayout {
         search.setPrefixComponent(new Icon(VaadinIcon.SEARCH));
         search.setValueChangeMode(ValueChangeMode.EAGER);
         search.addValueChangeListener(textFieldStringComponentValueChangeEvent -> {
-            salaries = unprotectedEmployeeService.getSalariesByMonth(employee.getId(), search.getValue().toLowerCase());
+            salaries = protectedEmployeeService.getSalariesByMonth(employee.getId(), search.getValue().toLowerCase());
             redrawSalary();
         });
 
@@ -92,7 +95,7 @@ public class SalaryAccordion extends HorizontalLayout {
             VerticalLayout popupLayout = new VerticalLayout();
             popupLayout.setPadding(false);
 
-            new AddSalaryPopup(unprotectedEmployeeService, employee, this);
+            new ProtectedAddSalaryPopup(protectedEmployeeService, employee, this);
         });
 
         return addSkillButton;
@@ -119,7 +122,7 @@ public class SalaryAccordion extends HorizontalLayout {
     }
 
     public void redrawSalaryAndFetch() {
-        salaries = unprotectedEmployeeService.getSalaries(employee.getId());
+        salaries = protectedEmployeeService.getSalaries(employee.getId());
         accordion.removeAll();
         accordion.add(getSalaryAccordion());
     }
@@ -130,7 +133,7 @@ public class SalaryAccordion extends HorizontalLayout {
         skillContent.setSpacing(false);
         skillContent.addClassNames("pl-l");
 
-        Optional<Employee> salaryEmployee = unprotectedEmployeeService.getUser(salary.getEmployee_id());
+        Optional<Employee> salaryEmployee = protectedEmployeeService.getUser(salary.getEmployee_id());
         if (salaryEmployee.isPresent()) {
             skillContent.add(getAccordionContentRow("Name", salaryEmployee.get().getFirstname() + " " + salaryEmployee.get().getLastname()));
             skillContent.add(getAccordionContentRow("Id", salaryEmployee.get().getId()));

@@ -1,9 +1,10 @@
-package com.example.application.unprotectedwebsite.views;
+package com.example.application.core.views;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.application.protectedwebsite.database.ProtectedView;
+import com.example.application.protectedwebsite.views.ProtectedView;
+import com.example.application.unprotectedwebsite.views.UnprotectedView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;

@@ -1,12 +1,9 @@
-package com.example.application.backend;
+package com.example.application.core.backend;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.stereotype.Service;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.TimeZone;
 
 @Service
@@ -34,6 +31,13 @@ public class DBMain {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public PreparedStatement preparedStatement(String sql) throws SQLException {
+        if(connection == null){
+            connect();
+        }
+        return connection.prepareStatement(sql);
     }
 
     public ResultSet executeQuery(String sql) throws SQLException {

@@ -1,4 +1,4 @@
-package com.example.application.backend.data;
+package com.example.application.core.backend.data;
 
 import java.time.LocalDate;
 

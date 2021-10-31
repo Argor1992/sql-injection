@@ -1,30 +1,28 @@
-package com.example.application.unprotectedwebsite.views;
+package com.example.application.protectedwebsite.views;
 
 import com.example.application.core.backend.data.Employee;
-import com.example.application.unprotectedwebsite.database.UnprotectedEmployeeService;
 import com.example.application.core.views.MainLayout;
+import com.example.application.protectedwebsite.database.ProtectedEmployeeService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.RouteAlias;
+import com.vaadin.flow.router.Route;
 
 import java.util.Optional;
 
-@PageTitle("Unprotected")
-@Route(value = "unprotected", layout = MainLayout.class)
-@RouteAlias(value = "", layout = MainLayout.class)
-public class UnprotectedView extends HorizontalLayout {
+@PageTitle("Protected")
+@Route(value = "protected", layout = MainLayout.class)
+public class ProtectedView extends VerticalLayout {
 
-    private final UnprotectedEmployeeService unprotectedEmployeeService;
+    private final ProtectedEmployeeService protectedEmployeeService;
     private Employee employee;
 
     private final VerticalLayout pageContent = new VerticalLayout();
 
-    public UnprotectedView(UnprotectedEmployeeService unprotectedEmployeeService) {
-        this.unprotectedEmployeeService = unprotectedEmployeeService;
+    public ProtectedView(ProtectedEmployeeService protectedEmployeeService) {
+        this.protectedEmployeeService = protectedEmployeeService;
 
         addClassNames("justify-center");
         Div mainDiv = new Div();
@@ -32,7 +30,7 @@ public class UnprotectedView extends HorizontalLayout {
         pageContent.setPadding(true);
         pageContent.setSpacing(false);
 
-        Optional<Employee> employeeOptional = unprotectedEmployeeService.getCurrentUser();
+        Optional<Employee> employeeOptional = protectedEmployeeService.getCurrentUser();
         if (employeeOptional.isPresent()) {
             employee = employeeOptional.get();
             pageContent.add(getProfileHeader(), getMainContent());
@@ -110,7 +108,7 @@ public class UnprotectedView extends HorizontalLayout {
     }
 
     private Component getSalaries() {
-        return new SalaryAccordion(unprotectedEmployeeService, employee);
+        return new ProtectedSalaryAccordion(protectedEmployeeService, employee);
     }
 
 }
